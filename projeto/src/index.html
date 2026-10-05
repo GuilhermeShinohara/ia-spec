@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6f8">
+    <title>Fila Mack — Atendimento</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./app.mjs"></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Fila Mack, início">
+          <span class="brand-mark" aria-hidden="true">FM</span>
+          <span>Fila Mack</span>
+        </a>
+        <span class="service-label"><span class="status-dot" aria-hidden="true"></span> Atendimento acadêmico</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">PAINEL DE ATENDIMENTO</p>
+        <h1 id="page-title">Organize sua fila,<br><span>um atendimento por vez.</span></h1>
+        <p class="intro-copy">Emita uma senha ou acompanhe o andamento da fila em tempo real.</p>
+      </section>
+
+      <section class="control-panel" aria-label="Ações de atendimento">
+        <div class="issue-action">
+          <div>
+            <p class="action-kicker">ALUNO</p>
+            <h2>Precisa de atendimento?</h2>
+            <p>Retire uma senha e aguarde sua vez.</p>
+          </div>
+          <button class="button button-primary" id="issue-button" type="button">
+            <span aria-hidden="true">＋</span> Emitir senha
+          </button>
+        </div>
+        <div class="staff-actions">
+          <div>
+            <p class="action-kicker">ATENDENTE</p>
+            <h2>Controle da fila</h2>
+          </div>
+          <div class="button-group">
+            <button class="button button-secondary" id="call-button" type="button">Chamar próxima</button>
+            <button class="button button-quiet" id="finish-button" type="button">Finalizar atendimento</button>
+          </div>
+        </div>
+        <p class="announcement" id="announcement" role="status" aria-live="polite">A fila está pronta para receber senhas.</p>
+      </section>
+
+      <section class="queue-section" aria-labelledby="queue-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ACOMPANHAMENTO</p>
+            <h2 id="queue-heading">Estado da fila</h2>
+          </div>
+          <span class="live-label"><span class="status-dot" aria-hidden="true"></span> Atualizada agora</span>
+        </div>
+
+        <div class="queue-grid">
+          <article class="queue-card current-card" aria-labelledby="current-heading">
+            <div class="card-heading">
+              <span class="card-icon current-icon" aria-hidden="true">↗</span>
+              <div>
+                <p class="card-label">EM ATENDIMENTO</p>
+                <h3 id="current-heading">Senha atual</h3>
+              </div>
+            </div>
+            <div class="current-ticket empty-state" id="current-ticket" aria-live="polite">
+              <span class="empty-symbol" aria-hidden="true">—</span>
+              <span>Nenhum atendimento em andamento</span>
+            </div>
+          </article>
+
+          <article class="queue-card" aria-labelledby="waiting-heading">
+            <div class="card-heading">
+              <span class="card-icon waiting-icon" aria-hidden="true">◷</span>
+              <div>
+                <p class="card-label">PRÓXIMOS</p>
+                <h3 id="waiting-heading">Aguardando</h3>
+              </div>
+              <span class="count-badge" id="waiting-count">0</span>
+            </div>
+            <ol class="ticket-list" id="waiting-list" aria-label="Senhas aguardando">
+              <li class="list-empty">Nenhuma senha aguardando</li>
+            </ol>
+          </article>
+
+          <article class="queue-card" aria-labelledby="finished-heading">
+            <div class="card-heading">
+              <span class="card-icon finished-icon" aria-hidden="true">✓</span>
+              <div>
+                <p class="card-label">CONCLUÍDOS</p>
+                <h3 id="finished-heading">Finalizadas</h3>
+              </div>
+              <span class="count-badge" id="finished-count">0</span>
+            </div>
+            <ol class="ticket-list" id="finished-list" aria-label="Senhas finalizadas">
+              <li class="list-empty">Nenhuma senha finalizada</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>Fila Mack</span>
+        <span>Fila única · Ordem de chegada</span>
+      </footer>
+    </main>
+  </body>
+</html>
